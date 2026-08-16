@@ -22,6 +22,8 @@ public class Scene extends JPanel {
         icoMario = new ImageIcon(getClass().getResource("/images/marioMarcheDroite.png"));
         this.imgMario = this.icoMario.getImage();
 
+        Thread chronoEcran = new Thread(new Chrono());
+        chronoEcran.start();
     }
 
     public void paintComponent(Graphics g){
