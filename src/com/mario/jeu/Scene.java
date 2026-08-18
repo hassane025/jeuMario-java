@@ -1,5 +1,7 @@
 package com.mario.jeu;
 
+import com.mario.personnage.Mario;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,15 +16,13 @@ public class Scene extends JPanel {
     private final ImageIcon icoDepart;
     private Image imgDepart;
 
-
-    private ImageIcon icoMario;
-    private Image imgMario;
-
     private int xFond1;
     private int xFond2;
     private int dx;
 
     private int xPos;
+
+    public Mario mario;
 
     public Scene(){
         super();
@@ -41,8 +41,7 @@ public class Scene extends JPanel {
         icoDepart = new ImageIcon(getClass().getResource("/images/depart.png"));
         this.imgDepart = this.icoDepart.getImage();
 
-        icoMario = new ImageIcon(getClass().getResource("/images/marioMarcheDroite.png"));
-        this.imgMario = this.icoMario.getImage();
+        mario = new Mario(300, 245);
 
         this.setFocusable(true);
         this.requestFocusInWindow(true);
@@ -111,7 +110,7 @@ public class Scene extends JPanel {
         this.deplacementFond();
         g2.drawImage(this.imgFond1, this.xFond1, 0, null);
         g2.drawImage(this.imgFond2, this.xFond2, 0, null);
-        g2.drawImage(imgMario, 300, 245, null);
+        g2.drawImage(this.mario.getImgMario(), 300, 245, null);
         g2.drawImage(imgChateau, 10 - this.xPos, 95, null);
         g2.drawImage(imgDepart, 220 - this.xPos, 234, null);
     }
