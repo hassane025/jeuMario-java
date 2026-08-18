@@ -1,5 +1,10 @@
 package com.mario.personnage;
 
+import com.mario.jeu.Main;
+
+import javax.swing.*;
+import java.awt.*;
+
 public class Personnage {
 
     private int largeur, hauteur;
@@ -78,4 +83,40 @@ public class Personnage {
     }
 
     /*METHODE*/
+    public Image marche(String nom, int frequence){
+        String str;
+        ImageIcon ico;
+        Image img;
+
+        if (this.marche == false || Main.scene.getxPos() <= 0){
+            if (this.versDroite == true){
+                str = "/images/" + nom + "ArretDroite.png";
+            }else {
+                str = "/images/" + nom + "ArretGauche.png";
+            }
+        }else {
+            this.compteur++;
+
+            if (this.compteur / frequence == 0) {
+                if (this.versDroite==true){
+                    str = "/images/" + nom + "ArretDroite.png";
+                }else {
+                    str = "/images/"+nom+"ArretGauche.png";
+                }
+            }else {
+                if (this.versDroite==true){
+                    str = "/images/" + nom + "MarcheDroite.png";
+                }else {
+                    str = "/images/"+nom+"MarcheGauche.png";
+                }
+            }
+            if (this.compteur == 2 * frequence){
+                this.compteur = 0;
+            }
+        }
+        ico = new ImageIcon(getClass().getResource(str));
+        img = ico.getImage();
+
+        return img;
+    }
 }

@@ -110,7 +110,7 @@ public class Scene extends JPanel {
         this.deplacementFond();
         g2.drawImage(this.imgFond1, this.xFond1, 0, null);
         g2.drawImage(this.imgFond2, this.xFond2, 0, null);
-        g2.drawImage(this.mario.getImgMario(), 300, 245, null);
+        g2.drawImage(this.mario.marche("mario", 25), 300, 245, null);
         g2.drawImage(imgChateau, 10 - this.xPos, 95, null);
         g2.drawImage(imgDepart, 220 - this.xPos, 234, null);
     }
