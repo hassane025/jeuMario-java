@@ -1,5 +1,7 @@
 package com.mario.jeu;
 
+import com.mario.objets.Bloc;
+import com.mario.objets.TuyauRouge;
 import com.mario.personnage.Mario;
 
 import javax.swing.*;
@@ -23,6 +25,8 @@ public class Scene extends JPanel {
     private int xPos;
 
     public Mario mario;
+    public TuyauRouge tuyauRouge1;
+    public Bloc bloc1;
 
     public Scene(){
         super();
@@ -42,6 +46,8 @@ public class Scene extends JPanel {
         this.imgDepart = this.icoDepart.getImage();
 
         mario = new Mario(300, 245);
+        tuyauRouge1 = new TuyauRouge(600, 230);
+        bloc1 = new Bloc(400, 100);
 
         this.setFocusable(true);
         this.requestFocusInWindow(true);
@@ -113,6 +119,8 @@ public class Scene extends JPanel {
         g2.drawImage(this.mario.marche("mario", 25), 300, 245, null);
         g2.drawImage(imgChateau, 10 - this.xPos, 95, null);
         g2.drawImage(imgDepart, 220 - this.xPos, 234, null);
+        g2.drawImage(this.tuyauRouge1.getImgTuyauRouge(), this.tuyauRouge1.getX() - this.xPos, this.tuyauRouge1.getY(),null);
+        g2.drawImage(this.bloc1.getImgBloc(), this.bloc1.getX() - this.xPos, this.bloc1.getY(),null);
     }
 
 }
